@@ -48,6 +48,8 @@ module.exports = {
       }
     }),
     new webpack.NoErrorsPlugin(),
+    extractCSS,
+    extractLESS,
   ],
   module: {
     loaders: [
@@ -59,6 +61,32 @@ module.exports = {
           presets: ["es2015", "react", "stage-0", "react-optimize"],
         },
         exclude: /(node_modules)/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.gif$/,
+        loader: 'url-loader?mimetype=image/png'
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9].[0-9].[0-9])?$/,
+        loader: 'url-loader?mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9].[0-9].[0-9])?$/,
+        loader: 'file-loader?name=[name].[ext]'
+      }
+    ],
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'less-loader'
+        ]
       }
     ]
   }
