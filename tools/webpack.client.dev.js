@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CONFIG = require('./webpack.base')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const { CLIENT_ENTRY, CLIENT_OUTPUT, PUBLIC_PATH } = CONFIG
 
@@ -67,14 +68,24 @@ module.exports = {
       }
     ],
     rules: [
+      /*
       {
         test: /\.less$/,
         use: [
           'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'css-loader', options: { importLoaders: 1, import: true } },
           'less-loader'
         ]
       }
+      */
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract(
+          {
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader!less-loader'
+          })
+      },
     ]
   },
   standard: {
@@ -88,6 +99,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', 2),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin("styles.css"),
   ],
 }

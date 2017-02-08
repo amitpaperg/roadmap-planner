@@ -8,6 +8,8 @@ const Nav = () => (
     <IndexLink to='/' className={css(styles.link)} activeClassName={css(styles.link, styles.activeLink)}>
       Home
     </IndexLink>
+    <Link to='/demo' className={css(styles.link)} activeClassName={css(styles.link, styles.activeLink)}> Demo
+    </Link>
     <Link to='/posts' className={css(styles.link)} activeClassName={css(styles.link, styles.activeLink)}> Example Feed
     </Link>
     <a href='https://github.com/jaredpalmer/react-production-starter' className={css(styles.link)} target='_blank'>GitHub</a>

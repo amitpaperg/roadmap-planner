@@ -3,18 +3,13 @@ import Helmet from 'react-helmet'
 import Nav from './Nav'
 import { StyleSheet, css } from 'aphrodite'
 
-import 'react-widgets/lib/less/react-widgets.less'
-import Multiselect from 'react-widgets/lib/Multiselect'
-
 const App = ({ children }) => {
-  const colors = ['orange', 'red', 'blue', 'green'];
   return (
     <div className={css(styles.root)}>
       <Helmet title='React Production Starter' titleTemplate='%s - React Production Starter' />
       <h1 className={css(styles.title)}>React Production Starter</h1>
       <Nav />
       {children}
-      <Multiselect defaultValue={['red', 'green']}data={colors}/>
       <footer className={css(styles.footer)}>
         Copyright © 2016 <a className={css(styles.footerLink)} href='http://twitter.com/jaredpalmer' target='_blank'>Jared Palmer</a>
       </footer>
