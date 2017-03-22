@@ -14,6 +14,7 @@ export default function createRoutes (store) {
           require('./PostList').default(store), // no need to modify store, no reducer
           require('./Post').default(store), // add async reducer
           require('./Demo').default(store), // no reducer
+          require('./People').default(store), // no reducer
           require('./NotFound').default
         ])
       })

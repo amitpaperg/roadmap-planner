@@ -10,6 +10,8 @@ const Nav = () => (
     </IndexLink>
     <Link to='/demo' className={css(styles.link)} activeClassName={css(styles.link, styles.activeLink)}> Demo
     </Link>
+    <Link to='/people' className={css(styles.link)} activeClassName={css(styles.link, styles.activeLink)}> People
+    </Link>
     <Link to='/posts' className={css(styles.link)} activeClassName={css(styles.link, styles.activeLink)}> Example Feed
     </Link>
     <a href='https://github.com/jaredpalmer/react-production-starter' className={css(styles.link)} target='_blank'>GitHub</a>
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
   link: {
     maxWidth: 700,
     color: '#999',
-    margin: '1.5rem 1rem 1.5rem 0',
+    margin: '0.5rem 1rem 0.5rem 0',
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 'bold',

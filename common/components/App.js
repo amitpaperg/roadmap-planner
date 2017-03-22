@@ -6,9 +6,11 @@ import { StyleSheet, css } from 'aphrodite'
 const App = ({ children }) => {
   return (
     <div className={css(styles.root)}>
-      <Helmet title='React Production Starter' titleTemplate='%s - React Production Starter' />
-      <h1 className={css(styles.title)}>React Production Starter</h1>
-      <Nav />
+      <Helmet title='Roadmap Planner' titleTemplate='%s - Roadmap Planner' />
+      <div className={css(styles.header)} >
+        <h1 className={css(styles.title)}>Roadmap Planner</h1>
+        <Nav />
+      </div>
       {children}
       <footer className={css(styles.footer)}>
         Copyright © 2016 <a className={css(styles.footerLink)} href='http://twitter.com/jaredpalmer' target='_blank'>Jared Palmer</a>
@@ -19,16 +21,17 @@ const App = ({ children }) => {
 
 const styles = StyleSheet.create({
   root: {
-    maxWidth: 700,
     color: '#000',
-    margin: '2rem auto',
+    margin: 'auto',
     padding: '0 1rem'
+  },
+  header: {
+    marginBottom: '1.0rem'
   },
   title: {
     color: '#000',
-    maxWidth: 300,
     fontWeight: 'bold',
-    fontSize: 56
+    fontSize: 32
   },
   footer: {
     margin: '4rem auto',
